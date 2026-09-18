@@ -1,0 +1,10 @@
+controle-exames-sst/
+├── .github/
+│   └── ISSUE_TEMPLATE/        # Modelos para organizar tarefas no GitHub
+├── docs/                      # Documentação funcional e regras da NR-07
+│   ├── requisitos.md
+│   └── modelo-dados.md
+├── src/                       # Código-fonte da aplicação
+├── .gitignore                 # Arquivos ignorados pelo Git
+├── LICENSE                    # Licença do projeto (ex: MIT)
+└── README.md                  # Apresentação do projeto e instruções de uso
