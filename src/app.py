@@ -1,25 +1,9 @@
-import io
-import pandas as pd
-import streamlit as st
+import os
+import sqlite3
 
+# Define o caminho do banco no mesmo diretório do app.py
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "exames_sst.db")
 
-# Função auxiliar para converter o DataFrame em formato Excel na memória
-def converter_df_para_excel(df):
-  output = io.BytesIO()
-  with pd.ExcelWriter(output, engine='openpyxl') as writer:
-    df.to_excel(writer, index=False, sheet_name='Exames_SST')
-  processed_data = output.getvalue()
-  return processed_data
-
-
-# Exemplo de botão no Streamlit para exportar dados
-# Supondo que 'df_exames' seja o DataFrame exibido na tela:
-if 'df_exames' in locals() and not df_exames.empty:
-  excel_data = converter_df_para_excel(df_exames)
-
-  st.download_button(
-      label='📥 Baixar Relatório em Excel',
-      data=excel_data,
-      file_name='relatorio_exames_sst.xlsx',
-      mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-  )
+# Conecta usando o caminho correto
+conn = sqlite3.connect(DB_PATH)
